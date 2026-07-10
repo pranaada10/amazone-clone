@@ -8,6 +8,7 @@ const connectDB = require("./config/db");
 
 // 👇 Import routes
 const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 connectDB();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // 👇 Register routes HERE
 app.use("/api/users", userRoutes);
+app.use("/api/products", productRoutes);
 
 app.get("/", (req, res) => {
     res.send("Amazon Backend API is running...");
