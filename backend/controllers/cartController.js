@@ -8,7 +8,12 @@ exports.addToCart = async (req, res) => {
     try {
 
         const { user, product, quantity } = req.body;
-
+    if (quantity < 1) {
+    return res.status(400).json({
+        success: false,
+        message: "Quantity must be at least 1"
+    });
+}
         const existingItem = await Cart.findOne({
             user,
             product

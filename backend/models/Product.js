@@ -10,12 +10,14 @@ const productSchema = new mongoose.Schema(
 
         brand: {
             type: String,
-            required: true
+            required: true,
+            trim: true
         },
 
         category: {
             type: String,
-            required: true
+            required: true,
+            trim: true
         },
 
         description: {
@@ -28,16 +30,18 @@ const productSchema = new mongoose.Schema(
             required: true
         },
 
-        price: {
+       price: {
             type: Number,
             required: true,
-            default: 0
+            default: 0,
+            min: 0
         },
 
         countInStock: {
             type: Number,
             required: true,
-            default: 0
+            default: 0,
+            min: 0
         }
     },
     {
